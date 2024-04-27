@@ -1,8 +1,11 @@
 #include <iostream>
 #include <string>
+
 using namespace std;
 
 string Converter(double amount) {
+	amount = round(amount * 100) / 100;
+
 	string moneyAmount = to_string(amount);
 
 	size_t Decimal = moneyAmount.find('.');
@@ -30,7 +33,7 @@ string Converter(double amount) {
 	}
 
 
-	Shortinteger += moneyAmount.substr(Decimal);
+	Shortinteger += moneyAmount.substr(Decimal,3);
 		
 	return Shortinteger;
 }
@@ -63,7 +66,7 @@ int main() {
 	}
 
 	string FormattedNumber = Converter(number);
-	cout << "\nThe formatted number is " << FormattedNumber << ".";
+	cout << "\nThe formatted number is " << FormattedNumber;
 	cin.get();
 	cin.ignore();
 		return 0;
